@@ -3,12 +3,12 @@ Simple C program for a Raspberry based LEGO rover
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-                         Ho realizzato la libreria fakePi per simulare le funzioni relative alla wiringPi
+                       Ho realizzato la libreria fakePi per simulare le funzioni relative alla wiringPi
 
 ------------------------------------------------------------------------------------------------------------------------------
 
 
-                                                  INTRODUZIONE HARDWARE
+                                                INTRODUZIONE HARDWARE
 
 Il rover è composto da due motori controllati da un L293D, l'integrato riceve 3 bit per motore. 1 di enable (E) e due per codificare il verso in cui il motore dere ruotare (A e B). Nel programma sono stati identificati come: 
 
@@ -18,7 +18,7 @@ DB (secondo bit direzione del motore destro),
 per il motore sinistro vale la stessa codifica solo che è stato usato il prefisso S (ad es, SE per l'enable del motore sinistro).
 
 
-                                                 INTRODUZIONE SOFTWARE
+                                                INTRODUZIONE SOFTWARE
 
 Il software si articola su due livelli:
 
@@ -28,7 +28,7 @@ Il secondo livello software si occupa di "leggere" i valori delle due variabili 
 
 
 
-                                              COME SI GESTISCE IL ROVER
+                                            COME SI GESTISCE IL ROVER
 
 entrambi i motori sono settati inizialmente alla stessa velocità data dalla variabile speed.
 
@@ -39,6 +39,6 @@ Vi è poi una funzione brake() che azzera le variabili globali.
 se speed = 0, il rover non gira.
 
 
-                                           !!!!  COSA VA IMPLEMENTATO  !!!!
+                                         !!!!  COSA VA IMPLEMENTATO  !!!!
 
 La possibilità di ricevere i comandi da consolle senza dover premere invio dopo aver premuto un pulsante.
