@@ -142,19 +142,19 @@ int setPWM(int vel){
 void setVerso(int vel){
     
     if (vel == 1 || vel == 2){
-        digitalWrite(DA, 1);
-        digitalWrite(DB, 0);
+        digitalWrite(DA, HIGH);
+        digitalWrite(DB, LOW);
         
-        digitalWrite(SA, 1);
-        digitalWrite(SB, 0);
+        digitalWrite(SA, HIGH);
+        digitalWrite(SB, LOW);
     }
 
     else if (vel == -1 || vel == -2){
-        digitalWrite(DA, 0);
-        digitalWrite(DB, 1);
+        digitalWrite(DA, LOW);
+        digitalWrite(DB, HIGH);
         
-        digitalWrite(SA, 0);
-        digitalWrite(SB, 1);
+        digitalWrite(SA, LOW);
+        digitalWrite(SB, HIGH);
     }
     
 }
@@ -233,13 +233,13 @@ int main (void)
     speed = 0;
     turn = 0;
     
-    /*pinMode (DE, PWM_OUTPUT);
+    pinMode (DE, PWM_OUTPUT);
     pinMode (DA, OUTPUT);
     pinMode (DB, OUTPUT);
     
     pinMode (SE, PWM_OUTPUT);
     pinMode (SA, OUTPUT);
-    pinMode (SB, OUTPUT);*/
+    pinMode (SB, OUTPUT);
     
     printf ("Variabili inizializzate correttamente\n");
     

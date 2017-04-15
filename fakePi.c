@@ -9,16 +9,20 @@
 #include "fakePi.h"
 
 
-void digitalWrite(int pin, int HIGH){
+void digitalWrite(int pin, int value){
     
-    printf("PIN: %d\nDigitalOut: %d\n", pin, HIGH);
+    printf("PIN: %d\nDigitalOut: %d\n", pin, value);
     
 }
 
-void pwmWrite(int pin, int dPWM){
-    printf("PIN: %d\nPWMOut: %d\n", pin, dPWM);
+void pwmWrite(int pin, int PWM){
+    printf("PIN: %d\nPWMOut: %d\n", pin, PWM);
 }
 
 int wiringPiSetup(){
     return 0;
+}
+
+void pinMode (int pin, int mode){
+    
 }
