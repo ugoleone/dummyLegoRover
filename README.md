@@ -4,6 +4,8 @@ Simple C program for a Raspberry based LEGO rover
 ------------------------------------------------------------------------------------------------------------------------------
 
                        Ho realizzato la libreria fakePi per simulare le funzioni relative alla wiringPi
+                       
+                       Ricordarsi l'argomento -l ncurses per il compilatore
 
 ------------------------------------------------------------------------------------------------------------------------------
 
@@ -39,6 +41,6 @@ Vi è poi una funzione brake() che azzera le variabili globali.
 se speed = 0, il rover non gira.
 
 
-                                         !!!!  COSA VA IMPLEMENTATO  !!!!
+                                         INTERFACCIA GRAFICA DA CONSOLLE
 
-La possibilità di ricevere i comandi da consolle senza dover premere invio dopo aver premuto un pulsante.
+Tramite l'uso della libreria ncurses, è possibile "catturare" i tasti premuti sulla tastiera senza attendere la premuta del tasto "invio", e ricevere in tempo reale informazioni circa lo stato dei pin del raspberry
