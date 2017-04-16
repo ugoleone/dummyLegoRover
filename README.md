@@ -3,9 +3,10 @@ Simple C program for a Raspberry based LEGO rover
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-                       Ho realizzato la libreria fakePi per simulare le funzioni relative alla wiringPi
+       Ho realizzato la libreria fakePi per simulare le funzioni relative alla wiringPi. Le quali comunque sono state, 
+       per il momento, commentate.
                        
-                       Ricordarsi l'argomento -l ncurses per il compilatore
+                                      Ricordarsi l'argomento -l ncurses per il compilatore !
 
 ------------------------------------------------------------------------------------------------------------------------------
 
