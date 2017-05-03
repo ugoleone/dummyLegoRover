@@ -36,3 +36,10 @@ se speed = 0 e si prova a curvare, il rover gira sul posto, importanto un motore
                                          INTERFACCIA GRAFICA DA CONSOLLE
 
 Tramite l'uso della libreria ncurses, è possibile "catturare" i tasti premuti sulla tastiera senza attendere la premuta del tasto "invio", e ricevere in tempo reale informazioni circa lo stato dei pin del raspberry
+
+
+                                    IMPLEMENTAZIONE AUTOGUIDA TRAMITE LISTENER
+                                    
+Il rover è dotato di un interruttore che si chiude nel momento in cui urta un ostacolo. L'intento è quello di far attivare, alla premuta del contatto, una sequenza di autoguida che faccia fare retromarcia al rover.
+
+Inizialmente avevo messo un if subito dopo lo switch nel ciclo infinito che serve per "catturare" i comandi, se l'if avesse registrato la premuta del pulsante sarebbe partita la sequenza di autoguida. Ma non la catturava mai! Ora inserendo l'if dentro una funzione "listener()", posta sia dopo lo switch che come azione di default dentro lo switch, il rover capisce che è stato premuto il sensore solo mentre viene premuto uno dei tasti per pilotarlo! 
