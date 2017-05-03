@@ -4,9 +4,8 @@ Simple C program for a Raspberry based LEGO rover
 ------------------------------------------------------------------------------------------------------------------------------
 
                  Ho realizzato la libreria fakePi per simulare le funzioni relative alla wiringPi.
-                 Le quali comunque sono state, per il momento, commentate.
                        
-                                ! Ricordarsi l'argomento -l ncurses per il compilatore !
+                       ! Per compilare, i flag necessari sono: -lwiringPi -lpthread -lncurses !
 
 ------------------------------------------------------------------------------------------------------------------------------
 
@@ -25,21 +24,13 @@ per il motore sinistro vale la stessa codifica solo che è stato usato il prefis
 
 Il software si articola su due livelli:
 
-vi sono due variabili globali "speed" e "turn" che possono assumere i valori -2, -1, 0, 1, 2 a seconda dei comandi ricevuti dalla consolle.
+vi sono due variabili globali "speed" e "turn" che possono assumere i valori -1, 0, 1 a seconda dei comandi ricevuti dalla consolle.
 
 Il secondo livello software si occupa di "leggere" i valori delle due variabili globali e definire il verso di rotazione e la velocità (tramite PWM) di rotazione dei motori.
 
-
-
-                                            COME SI GESTISCE IL ROVER
-
-entrambi i motori sono settati inizialmente alla stessa velocità data dalla variabile speed.
-
-A seconda del grado di curvatura viene decrementata di 250 o di 500 la velocità del motore corrispondente al lato verso cui si vuole curvare.
-
 Vi è poi una funzione brake() che azzera le variabili globali.
 
-se speed = 0, il rover non gira.
+se speed = 0 e si prova a curvare, il rover gira sul posto, importanto un motore in avanti ed uno in senso contrario.
 
 
                                          INTERFACCIA GRAFICA DA CONSOLLE
