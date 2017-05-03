@@ -21,10 +21,13 @@ const int LED3 = 11;
 const int LED4 = 12;
 const int LED5 = 13;
 
+const int urtoPin = 14;
+
 int speed;  //valori ammessi: -1, 0, 1
 int turn;   //valori ammessi: -1, 0, 1
 int led;    //valori ammessi: 0, 1
 int fari;   //valori ammessi: 0, 1
+int urto;   //valori ammessi: 0, 1
 
 int dPWM, sPWM; //valori ammessi: -100, -50, 0, 50, 100. Dopo il calcolo del verso se ne prendono i moduli
 
@@ -358,6 +361,8 @@ void printer(){
     printw("Led: %d  ", led);
     move(12,1);
     printw("Fari: %d  ", fari);
+    move(13,1);
+    printw("Urto: %d  ", urto);
     
     move(14,0);
     printw("--------------------------------------------------------------------------------");
@@ -386,7 +391,34 @@ void printer(){
     
 }
 
+void listener (){
 
+    if(!digitalRead(urtoPin))
+        {
+            urto = 1;
+	    
+	  /*rallenta();
+            rallenta();
+            setMotori();
+            printer();
+            sleep(1);
+            
+            
+            giraDx();
+            setMotori();
+            printer();
+            delay(75);
+            
+            brake();
+            setMotori();
+            printer();*/
+
+        }
+     else
+	urto = 0;
+
+
+}
 
 
 
@@ -407,6 +439,7 @@ int main (void)
     turn = 0;
     led = 0;
     fari = 0;
+    urto = 0;
     
     dPWM = 0;
     sPWM = 0;
@@ -433,6 +466,9 @@ int main (void)
     digitalWrite(LED4, LOW);
     digitalWrite(LED5, LOW);
     
+    pinMode(urtoPin, INPUT);
+    pullUpDnControl(urtoPin, PUD_UP);
+    
     
     //inizializzazione gestore LED
     
@@ -451,13 +487,15 @@ int main (void)
     
     
     while ((c=getch()) !=27){
-        
-        
-        switch (c) {
+
+	listener();
+
+	switch (c) {
             case 'w':
                 accelera();
                 setMotori();
                 printer();
+		listener();
                 break;
                 
             case 's':
@@ -497,9 +535,12 @@ int main (void)
                 
                 
             default:
-                printer();
+                listener();
+		printer();
                 break;
         }
+
+        
         
         
         
